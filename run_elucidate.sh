@@ -9,4 +9,5 @@ cd /usr/local/tomcat/bin
 
 ./startup.sh
 
+while true; do echo sleeping; sleep 10; done
 
