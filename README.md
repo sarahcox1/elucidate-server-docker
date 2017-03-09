@@ -22,8 +22,8 @@ git submodule init
 sudo docker build -t elucidate .
 sudo docker run -d \
         --name elucidate-server \
-        --env S3_SETTINGS='s3://<YOUR SETTINGS BUCKET AND KEY HERE>' \
-        --env S3_LOG_SETTINGS='s3://<YOUR LOG4J SETTINGS BUCKET AND KEY HERE>' \
+        --env S3_SETTINGS='<YOUR SETTINGS BUCKET AND KEY HERE>' \
+        --env S3_LOG_SETTINGS='<YOUR LOG4J SETTINGS BUCKET AND KEY HERE>' \
         --link elucidate-database:elucidate-database \
         -p=8080:8080 \
         elucidate \
