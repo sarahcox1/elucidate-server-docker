@@ -7,8 +7,6 @@ Docker configuration for running Elucidate.
 ```
 git clone https://github.com/dlcs/elucidate-database-docker
 cd elucidate-database-docker
-git submodule init
-git submodule update
 sudo docker build -t elucidate-database .
 sudo docker run -d \
 	--name elucidate-database \
