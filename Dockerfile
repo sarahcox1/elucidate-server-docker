@@ -32,16 +32,16 @@ RUN add-apt-repository -y ppa:webupd8team/java \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/cache/oracle-jdk8-installer
 
-# RUN groupadd tomcat
-# RUN useradd -s /bin/false -g tomcat -d /usr/local/tomcat tomcat
-
+# Install Tomcat 8.5.11
 RUN cd /tmp && wget http://apache.mirror.anlx.net/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz
 RUN tar xzvf /tmp/apache-tomcat-8*.tar.gz -C /usr/local/tomcat --strip-components=1
 
-# RUN cd /usr/local/tomcat && chgrp -R tomcat conf && chmod g+rwx conf && chmod g+r conf/* && chown -R tomcat work/ temp/ logs/
+# Download Elucidate 1.0.1
+RUN wget -O /opt/elucidate.tar.gz https://github.com/dlcs/elucidate-server/archive/1.0.1.tar.gz \
+	&& mkdir /opt/elucidate \
+	&& tar -xzvf /opt/elucidate-server.tar.gz --strip-components=1 -C /opt/elucidate
 
-COPY app /opt/elucidate
-
+# Compile Elucidate
 RUN cd /opt/elucidate/elucidate-parent && mvn clean package install -U \
 	&& cd ../elucidate-common-lib && mvn clean package install -U \
 	&& cd ../elucidate-converter && mvn clean package install -U \
