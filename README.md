@@ -17,8 +17,6 @@ sudo docker run -d \
 cd ..
 git clone https://github.com/dlcs/elucidate-server-docker
 cd elucidate-server-docker
-git submodule init
-git submodule update
 sudo docker build -t elucidate .
 sudo docker run -d \
         --name elucidate-server \
