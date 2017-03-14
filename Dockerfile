@@ -37,7 +37,7 @@ RUN cd /tmp && wget http://apache.mirror.anlx.net/tomcat/tomcat-8/v8.5.11/bin/ap
 RUN tar xzvf /tmp/apache-tomcat-8*.tar.gz -C /usr/local/tomcat --strip-components=1
 
 # Download Elucidate 1.0.1
-RUN wget -O /opt/elucidate.tar.gz https://github.com/dlcs/elucidate-server/archive/1.0.1.tar.gz \
+RUN wget -O /opt/elucidate-server.tar.gz https://github.com/dlcs/elucidate-server/archive/1.0.1.tar.gz \
 	&& mkdir /opt/elucidate \
 	&& tar -xzvf /opt/elucidate-server.tar.gz --strip-components=1 -C /opt/elucidate
 
